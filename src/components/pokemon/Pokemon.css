@@ -1,0 +1,22 @@
+.box {
+    padding: 10px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-right: -1px;
+}
+
+.species-name {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.species-name {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.types {
+    height: 22px;
+    text-align: center;
+}

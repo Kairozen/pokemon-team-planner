@@ -1,0 +1,12 @@
+.icon {
+    height: 35px;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.navbar {
+    padding: 0.5rem 1rem;
+    color: ghostwhite;
+}

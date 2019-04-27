@@ -1,0 +1,8 @@
+.pokemon-image {
+    height: 96px;
+    width: auto;
+    margin: 10px 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
