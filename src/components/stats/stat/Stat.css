@@ -1,0 +1,18 @@
+.stat-name {
+    width: 35px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.progress {
+    border-radius: 0;
+    background-color: transparent;
+    margin: 10px;
+}
+
+.progress-bar {
+    border: 1px solid black;
+    -webkit-transition: width 1s, background-color 1s;
+    -ms-transition: width 1s, background-color 1s;
+    transition: width 1s, background-color 1s;
+}
