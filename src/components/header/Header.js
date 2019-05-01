@@ -7,7 +7,7 @@ export default function Header() {
             <div className="container">
                 <span className="navbar-brand">Pokémon Team Planner</span>
                 <a href="https://github.com/Kairozen/pokemon-team-planner">
-                    <img alt="GitHub" className="icon invert" src="/assets/github.svg" />
+                    <img alt="GitHub" className="icon invert" src="./assets/github.svg" />
                 </a>
             </div>
         </nav>

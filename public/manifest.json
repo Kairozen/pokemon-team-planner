@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Pokémon Team Planner",
+  "name": "Pokémon Team Planner",
   "icons": [
     {
       "src": "favicon.ico",
