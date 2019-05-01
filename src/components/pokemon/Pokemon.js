@@ -76,8 +76,13 @@ export default class Pokemon extends Component {
         if (event.target.value === "") {
             this.setState({
                 selectedPokemon: null,
-                moves: []
+                moves: [],
+                selectedMovesTypes: []
             });
+            // Reset types to send to parent component
+            this.props.pokemonTypesCallback(this.props.num, []);
+            // Reset moves to send to parent component
+            this.props.moveTypesCallback(this.props.num, []);
         }
         else {
             // Fetch data of 1 pokemon
@@ -85,7 +90,13 @@ export default class Pokemon extends Component {
             fetch(API + API_ROUTE)
                 .then(res => res.json())
                 .then((data) => {
-                    this.setState({ selectedPokemon: data });
+                    this.setState({ selectedPokemon: data, selectedMovesTypes: [] });
+                    // Reset types to send to parent component
+                    let types = [];
+                    data.types.forEach(type => types.push(type.type.name));
+                    this.props.pokemonTypesCallback(this.props.num, types);
+                    // Reset moves
+                    this.props.moveTypesCallback(this.props.num, []);
                     // Get stats and send to parents
                     this.props.statsCallback(this.statsToSendToParent(1));
                     // Get their evolutionary line to fill moves

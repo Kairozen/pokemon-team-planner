@@ -1,0 +1,51 @@
+.row {
+    margin: 0;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.type-list {
+    text-align: center;
+}
+
+.number-type, .number-type-reversed {
+    font-weight: bold;
+}
+
+.weak {
+    color: #c40000;
+}
+
+.low-medium {
+    color: #ef9700;
+}
+
+.medium {
+    color: #0066ed;
+}
+
+.good {
+    color: #00c92b;
+}
+.type-table {
+    border: none;
+}
+.typecont {
+    display: inline-block;
+    width: 80px;
+    font-size: 13px;
+    text-align: center;
+}
+.type > div {
+    color: ghostwhite;
+    border: 1px solid black;
+    font-weight: bold;
+    margin-right: -1px;
+}
+
+.type-table-container {
+    padding: 0;
+}

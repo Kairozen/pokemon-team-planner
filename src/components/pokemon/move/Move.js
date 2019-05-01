@@ -36,7 +36,6 @@ export default class Move extends Component {
             oldType = this.state.selectedMove.type.name;
         }
         if (event.target.value === "") {
-            console.log(oldType,newType)
             this.setState({ selectedMove: null });
             this.props.moveTypesCallback(this.moveTypesToSendToParent(oldType,newType));
         }
@@ -58,9 +57,10 @@ export default class Move extends Component {
 
     render() {
         const moves = this.props.moves;
-
+        const selectedMove = this.state.selectedMove;
+        const typeClass = (selectedMove)?("select-"+selectedMove.type.name):("select-no-type");
         return (
-            <select onChange={this.handleChange} className="form-control move">
+            <select onChange={this.handleChange} className={"form-control move " + typeClass}>
                 <option key="" value=""></option>
                 {moves.map((move) =>
                     <option key={move.move.name} value={move.move.name}>{titleize(move.move.name)}</option>

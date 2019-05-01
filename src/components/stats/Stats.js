@@ -11,7 +11,7 @@ export default class Stats extends Component {
                 <h3>STATS AVERAGE</h3>
                 <div>
                     {Object.keys(values).map(key =>
-                        <Stat key={key} name={key} value={values[key] / nbPokemon}/>
+                        <Stat key={key} name={key} value={(nbPokemon === 0) ? (0) : (values[key] / nbPokemon)} />
                     )}
                 </div>
             </div>
