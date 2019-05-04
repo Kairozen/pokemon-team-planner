@@ -1,0 +1,30 @@
+.moveinfo-container {
+    position: absolute;
+    background: #ebebeb;
+    padding: 10px;
+    transition: opacity 0.5s, visibility 0.5s;
+    z-index: 10;
+    border-radius: 5px;
+    width: 150%;
+    left: -25%;
+    border: 1px solid black;
+}
+
+.moveinfo-data {
+    padding: 0;
+}
+
+.moveinfo-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.moveinfo-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.center {
+    text-align: center;
+    padding-left: 10px;
+}

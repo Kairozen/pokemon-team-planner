@@ -2,6 +2,15 @@
     width: 100%;
     margin: 10px 5px;
     border: 1px solid black;
+    transition: background-color 1s;
+}
+
+.white {
+    background-color: #fff;
+}
+
+.moveinfo {
+    transition: opacity 0.5s;
 }
 
 .select-no-type    { background-color: #ffFFFFFF; }
