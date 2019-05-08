@@ -1,18 +1,57 @@
 .app {
-    margin-top: 70px;
     border: 1px solid black;
-    background-color: rgba(235,235,235,0.85);
     padding: 0;
+}
+
+
+.lightgrey-background {
+    background-color: rgba(235,235,235,0.85);
+}
+
+.lower {
+    margin-top: 70px;
+}
+
+.btn:focus {
+    box-shadow: none;
 }
 
 .pokemon {
     padding: 0;
 }
   
-.col {
+.border-black {
     border: 1px solid black;
+}
+
+.border-black:focus {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.my-toast {
+    margin-top: 50px;
+    border: 1px solid black;
+}
+
+.no-radius {
+    border-radius: 0;
+    border-bottom: none;
+    transition: visibility 0.5s, opacity 0.5s;
+}
+
+.toast {
+    box-shadow: none !important;
+    border-radius: 0px !important;
 }
   
 select, .form-control {
     font-weight: bold;
+}
+
+.team-name-input {
+    font-weight: normal;
+    border-right: none;
 }

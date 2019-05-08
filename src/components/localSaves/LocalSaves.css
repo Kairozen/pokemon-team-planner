@@ -1,0 +1,13 @@
+.modal-content {
+    border-radius: 0;
+}
+
+.team-line {
+    margin: 10px !important;
+    border: 1px solid black;
+    background: ghostwhite;
+}
+
+.team-line p {
+    margin: 10px 0;
+}

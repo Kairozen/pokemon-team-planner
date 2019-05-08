@@ -33,7 +33,7 @@ export const typesWeaknesses = {
     'steel':['fire','fighting','ground'],
     'fire':['water','ground','rock'],
     'water':['electric','grass'],
-    'grass':['fire','bug','flying','ice'],
+    'grass':['fire','bug','flying','ice','poison'],
     'electric':['ground'],
     'psychic':['dark','ghost','bug'],
     'ice':['fighting','fire','steel','rock'],
@@ -59,6 +59,48 @@ export const typesResists = {
     'psychic':['psychic','fighting'],
     'ice':['ice'],
     'dragon':['water','electric','fire','grass'],
-    'dark':['ghost','dark'],
+    'dark':['ghost','dark','psychic'],
     'fairy':['fighting','dragon','bug']
+};
+
+export const typesResistsWithoutImmunities = {
+    'normal':[],
+    'fighting':['bug','dark','rock'],
+    'flying':['grass','fighting','bug'],
+    'poison':['poison','fighting','fairy','bug','grass'],
+    'ground':['rock','poison'],
+    'rock':['fire','normal','poison','flying'],
+    'bug':['fighting','grass','ground'],
+    'ghost':['poison','bug'],
+    'steel':['steel','dragon','fairy','ice','bug','normal','grass','psychic','rock','flying'],
+    'fire':['fire','grass','bug','steel','fairy','ice'],
+    'water':['water','ice','steel','fire'],
+    'grass':['grass','ground','water','electric'],
+    'electric':['electric','flying','steel'],
+    'psychic':['psychic','fighting'],
+    'ice':['ice'],
+    'dragon':['water','electric','fire','grass'],
+    'dark':['ghost','dark'],
+    'fairy':['fighting','bug']
+};
+
+export const typesImmunities = {
+    'normal':['ghost'],
+    'fighting':[],
+    'flying':['ground'],
+    'poison':[],
+    'ground':['electric'],
+    'rock':[],
+    'bug':[],
+    'ghost':['normal','fighting'],
+    'steel':['poison'],
+    'fire':[],
+    'water':[],
+    'grass':[],
+    'electric':[],
+    'psychic':[],
+    'ice':[],
+    'dragon':[],
+    'dark':['psychic'],
+    'fairy':['dragon']
 };

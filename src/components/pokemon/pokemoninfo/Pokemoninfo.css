@@ -1,24 +1,29 @@
-.moveinfo-container {
+.pokemoninfo-container {
     position: absolute;
     background: #ebebeb;
     padding: 10px;
     transition: opacity 0.5s, visibility 0.5s;
     z-index: 10;
-    width: 150%;
-    left: -25%;
+    width: 124%;
+    left: -12%;
     border: 1px solid black;
 }
 
-.moveinfo-data {
+.pokemoninfo-data {
     padding: 0;
 }
 
-.moveinfo-visible {
+.pokemoninfo-type-relations {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.pokemoninfo-visible {
     opacity: 1;
     visibility: visible;
 }
 
-.moveinfo-hidden {
+.pokemoninfo-hidden {
     opacity: 0;
     visibility: hidden;
 }

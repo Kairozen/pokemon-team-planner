@@ -2,12 +2,18 @@
     width: 35px;
     font-weight: bold;
     font-size: 13px;
+    padding: 0;
+}
+
+.stat-container {
+    padding-left: 10px;
 }
 
 .progress {
     border-radius: 0;
+    padding: 0;
     background-color: transparent;
-    margin: 10px;
+    margin: 0;
 }
 
 .progress-bar {
@@ -15,4 +21,11 @@
     -webkit-transition: width 1s, background-color 1s;
     -ms-transition: width 1s, background-color 1s;
     transition: width 1s, background-color 1s;
+}
+
+.stat-value {
+    font-weight: bold;
+    padding: 0 0 10px 0;
+    font-size: 13px;
+    text-align: right;
 }
