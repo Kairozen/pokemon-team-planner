@@ -3,7 +3,6 @@
     padding: 0;
 }
 
-
 .lightgrey-background {
     background-color: rgba(235,235,235,0.85);
 }
@@ -22,6 +21,7 @@
   
 .border-black {
     border: 1px solid black;
+    border-right: none;
 }
 
 .border-black:focus {
@@ -54,4 +54,11 @@ select, .form-control {
 .team-name-input {
     font-weight: normal;
     border-right: none;
+}
+
+.upload-btn-wrapper input[type=file] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
 }

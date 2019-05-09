@@ -11,6 +11,7 @@ export default class AppContainer extends Component {
         super();
         this.toggleModal = this.toggleModal.bind(this);
         this.saveToLocalStorage = this.saveToLocalStorage.bind(this);
+        this.importTeam = this.importTeam.bind(this);
         this.teamNameInput = React.createRef();
         this.state = {
             movesTypes: [],
@@ -88,6 +89,25 @@ export default class AppContainer extends Component {
         }
     }
 
+    importTeam(event) {
+        try {
+            let files = event.target.files;
+            if(files.length) {
+                let file = files.item(0);
+                let reader = new FileReader();
+                let self = this;
+                reader.onload = (event) => {
+                    let result = JSON.parse(event.target.result);
+                    self.setState({loadedPokemons: result});
+                    ToastsStore.info("Team is loading, it will take some time...", 5000, "my-toast");
+                }
+                reader.readAsText(file);
+            }
+        } catch(e) {
+            console.log(e);
+        }
+    }
+
     render() {
         const selectedPokemonNumber = this.state.selectedPokemonNumber;
         const statValues = this.state.statValues;
@@ -97,8 +117,12 @@ export default class AppContainer extends Component {
         return (
             <div className="lower">
                 <div className="row">
-                    <button className="col-md col-sm btn no-radius lightgrey-background btn-outline-dark" onClick={this.toggleModal}>Saved Teams</button>
-                    <div className="col-md hidden-sm-down"></div>
+                    <button className="col-md col-sm btn no-radius border-black lightgrey-background btn-outline-dark" onClick={this.toggleModal}>Saved Teams</button>
+                    <div className="col-md col-sm upload-btn-wrapper btn-outline-dark btn no-radius lightgrey-background">
+                        Import a team
+                        <input onChange={this.importTeam} type="file" onClick={this.importTeam}/>
+                    </div> 
+                    <div className="col-md-1 hidden-sm-down"></div>
                     <input type="text" placeholder="Team Name" ref={this.teamNameInput} className="col-md col-sm team-name-input no-radius border-black form-control" />
                     <button onClick={this.saveToLocalStorage} className="col-md col-sm btn no-radius lightgrey-background btn-outline-dark">Save</button>
                     <ToastsContainer position={ToastsContainerPosition.TOP_CENTER} store={ToastsStore} />
