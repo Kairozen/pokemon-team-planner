@@ -32,3 +32,11 @@
     text-align: center;
     padding-left: 10px;
 }
+
+.no-bottom-margin {
+    margin-bottom: 0;
+}
+
+.bottom-margin {
+    margin-bottom: 0.5rem;
+}

@@ -30,11 +30,13 @@ export default class Move extends Component {
 
     componentDidUpdate(prevProps) {
         let moveToLoad = this.props.moveToLoad;
+        if(prevProps.moves.length !== 0 && this.props.moves.length === 0) {
+            this.moveSelectRef.current.value = "";
+            this.moveChange("");
+            this.setState({selectedMove: null});
+        }
         if(prevProps.moveToLoad && moveToLoad && (prevProps.moveToLoad === moveToLoad))
             return;
-        if(prevProps.moves.length !== 0 && this.props.moves.length === 0) {
-            this.setState({selectedMove:null});
-        }
     }
 
     handleMouseHoverOut() {

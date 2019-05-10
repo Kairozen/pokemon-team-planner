@@ -19,7 +19,7 @@ function calcWeaknessesAndResists(types) {
     let secondTypeWeaknesses = (types[1]) ? (TypeRelations.typesWeaknesses[types[1].type.name]) : ([]);
     let firstTypeResists = (types[0]) ? (TypeRelations.typesResistsWithoutImmunities[types[0].type.name]) : ([]);
     let secondTypeResists = (types[1]) ? (TypeRelations.typesResistsWithoutImmunities[types[1].type.name]) : ([]);
-    let firstTypeImmunities = (types[1]) ? (TypeRelations.typesImmunities[types[0].type.name]) : ([]);
+    let firstTypeImmunities = (types[0]) ? (TypeRelations.typesImmunities[types[0].type.name]) : ([]);
     let secondTypeImmunities = (types[1]) ? (TypeRelations.typesImmunities[types[1].type.name]) : ([]);
     let pokeWeaknesses = firstTypeWeaknesses.concat(secondTypeWeaknesses);
     let pokeResists = firstTypeResists.concat(secondTypeResists);
@@ -99,8 +99,8 @@ export default function render(props) {
                     {
                         weaknessesAndResists.doubleResists.length > 0 &&
                         <React.Fragment>
-                            <h5>Strongly resists</h5>
-                            <div>
+                            <h5 className="no-bottom-margin">Strongly resists</h5>
+                            <div className="bottom-margin">
                                     {weaknessesAndResists.doubleResists.map(type => 
                                         <Type key={type} type={type} />
                                     )}
@@ -110,8 +110,8 @@ export default function render(props) {
                     {
                         weaknessesAndResists.resists.length > 0 &&
                         <React.Fragment>
-                            <h5>Resists</h5>
-                            <div>
+                            <h5 className="no-bottom-margin">Resists</h5>
+                            <div className="bottom-margin">
                                     {weaknessesAndResists.resists.map(type => 
                                         <Type key={type} type={type} />
                                     )}
@@ -121,8 +121,8 @@ export default function render(props) {
                     {
                         /* weaknessesAndResists.neutral.length > 0 &&
                         <React.Fragment>
-                            <h5>Neutral</h5>
-                            <div>
+                            <h5 className="no-bottom-margin">Neutral</h5>
+                            <div className="bottom-margin">
                                     {weaknessesAndResists.neutral.map(type => 
                                         <Type key={type} type={type} />
                                     )}
@@ -132,8 +132,8 @@ export default function render(props) {
                     {
                         weaknessesAndResists.weaknesses.length > 0 &&
                         <React.Fragment>
-                            <h5>Weak to</h5>
-                            <div>
+                            <h5 className="no-bottom-margin">Weak to</h5>
+                            <div className="bottom-margin">
                                     {weaknessesAndResists.weaknesses.map(type => 
                                         <Type key={type} type={type} />
                                     )}
@@ -143,8 +143,8 @@ export default function render(props) {
                     {
                         weaknessesAndResists.doubleWeaknesses.length > 0 &&
                         <React.Fragment>
-                            <h5>Very weak to</h5>
-                            <div>
+                            <h5 className="no-bottom-margin">Very weak to</h5>
+                            <div className="bottom-margin">
                                     {weaknessesAndResists.doubleWeaknesses.map(type => 
                                         <Type key={type} type={type} />
                                     )}
@@ -154,8 +154,8 @@ export default function render(props) {
                     {
                         weaknessesAndResists.immunities.length > 0 &&
                         <React.Fragment>
-                            <h5>Immune to</h5>
-                            <div>
+                            <h5 className="no-bottom-margin">Immune to</h5>
+                            <div className="bottom-margin">
                                 {weaknessesAndResists.immunities.map(type => 
                                     <Type key={type} type={type} />
                                 )}

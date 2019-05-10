@@ -40,7 +40,7 @@ export default class Pokemon extends Component {
 
     componentDidUpdate(prevProps) {
         let pokemonToLoad = this.props.pokemonToLoad;
-        if (prevProps.pokemonToLoad && pokemonToLoad && (prevProps.pokemonToLoad.name === pokemonToLoad.name))  {
+        if (prevProps.pokemonToLoad && pokemonToLoad && (prevProps.pokemonToLoad.name === pokemonToLoad.name)) {
             return;
         }
         /* if (!pokemonToLoad && this.state.selectedPokemon) {
@@ -133,7 +133,6 @@ export default class Pokemon extends Component {
             this.setState({
                 selectedPokemon: null,
                 isHovering: false,
-                moves: [],
                 selectedMovesTypes: []
             });
             // Send empty pokemon to parent
@@ -150,7 +149,6 @@ export default class Pokemon extends Component {
                 .then(res => res.json())
                 .then((data) => {
                     this.setState({
-                        moves: [],
                         selectedPokemon: data,
                         selectedMovesTypes: [],
                         isHovering: false
@@ -174,10 +172,21 @@ export default class Pokemon extends Component {
                         .then((data) => {
                             species = data;
                             if (!species.evolves_from_species) {
-                                this.setState({ moves: finalMoves });
-                                for(let i = 0; i < this.loadMoveFunctions.length; ++i) {
-                                    this.loadMoveFunctions[i]();
-                                }
+                                fetch(API + "pokemon/" + species.name)
+                                    .then(res => res.json())
+                                    .then((data) => {
+                                        tmpPokemon = data;
+                                        finalMoves = finalMoves
+                                            .concat(tmpPokemon.moves)
+                                            .filter((move, index, self) => 
+                                                index === self.findIndex((m) => 
+                                                    (m.move.name === move.move.name)));
+                                        this.setState({ moves: finalMoves });
+                                        for (let i = 0; i < this.loadMoveFunctions.length; ++i) {
+                                            this.loadMoveFunctions[i]();
+                                        }
+                                        this.setState({loadedMoves: []});
+                                    });
                             }
                             else {
                                 fetch(API + "pokemon/" + species.evolves_from_species.name)
@@ -192,10 +201,10 @@ export default class Pokemon extends Component {
                                                 ))
                                             )
                                         this.setState({ moves: finalMoves });
-                                        for(let i = 0; i < this.loadMoveFunctions.length; ++i) {
+                                        for (let i = 0; i < this.loadMoveFunctions.length; ++i) {
                                             this.loadMoveFunctions[i]();
                                         }
-                                        //this.loadMoveInChild();
+                                        this.setState({loadedMoves: []});
                                     })
                                     .catch(console.log);
                             }
@@ -213,6 +222,7 @@ export default class Pokemon extends Component {
         setTimeout(() => {
             event.target.removeAttribute('disabled');
         }, 500);
+        this.setState({ moves: [] });
         this.pokemonChange(event.target.value);
     }
 
